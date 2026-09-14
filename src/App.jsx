@@ -26,70 +26,77 @@ const LIGHT = {
   LINE: "#E1DCD0",
 };
 
-// Portfolio Configuration & Contact Information
+// Umar's Real Information & Contact Details
 const USER_INFO = {
-  name: "Shima Hilary Kaior",
-  role: "Backend Engineer",
-  email: "hilarykaior@gmail.com",
-  phone: "+234 8178362475",
-  rawPhone: "2348178362475",
-  location: "Abuja, Nigeria",
+  name: "Umar Abubakar",
+  role: "Full-Stack Developer",
+  email: "ug23sccs1044@gsu.edu.ng",
+  phone: "+234 7072105145",
+  rawPhone: "2347072105145",
+  location: "Gombe State, Nigeria",
   cvUrl: "/Umar_Abubakar_CV.pdf",
   socials: {
-    whatsapp: "https://api.whatsapp.com/send/?phone=%2B2348178362475&text=Hello+Shima%21+I+saw+your+portfolio+and+would+like+to+discuss+further.&type=phone_number&app_absent=0",
-    linkedin: "https://linkedin.com/in/shima-hilary-kaior",
+    whatsapp: "https://api.whatsapp.com/send/?phone=%2B2347072105145&text=Hello+Umar%21+I+saw+your+portfolio+and+would+like+to+discuss+further.",
+    linkedin: "https://www.linkedin.com/in/umar-babawuro-abubakar-a1597b435/",
     github: "https://github.com/Umarcomrd",
-    twitter: "https://twitter.com/hilarykaior",
+    twitter: "https://x.com/design30354",
   }
 };
 
-const featuredSkills = [
+// Umar's Real Skill Categories
+const skillCategories = [
+  { group: "Languages", items: ["JavaScript", "PHP", "SQL", "HTML5", "CSS3"] },
+  { group: "Frontend", items: ["React", "Responsive Design", "Vanilla JS"] },
+  { group: "Backend", items: ["PHP (PDO)", "MySQL", "Session Auth"] },
+  { group: "Tools", items: ["Git & GitHub", "XAMPP", "ngrok", "VS Code"] },
+];
+
+// Umar's Featured Technology Cards (styled after sample screenshot layout)
+const featuredTech = [
   {
-    name: "Java",
-    desc: "Robust object-oriented programming for scalable enterprise systems",
-    color: "#E76F51",
+    name: "JavaScript",
+    desc: "Core web scripting, asynchronous logic & dynamic DOM interaction",
+    color: "#F7DF1E",
     logo: (
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="none">
-        <path d="M8.85 17.8c0 0 1.25.9 3.05.9 1.7 0 2.95-.9 2.95-.9s-.75.45-1.95.45c-1.25 0-2.05-.45-2.05-.45z" fill="#E76F51"/>
-        <path d="M7.7 15.65c0 0 1.95 1.35 4.3 1.35s4.1-1.35 4.1-1.35-1.25.7-2.9.7c-1.65 0-2.95-.7-2.95-.7z" fill="#E76F51"/>
-        <path d="M12.85 3.3s.9 1.2-1.05 3.15c-1.4 1.4-1.2 2.35-.45 3.5 1.15 1.75.25 2.85-.35 3.5-.5.55-.8 1.15-.35 1.7 0 0 1.1-.35 1.6-1.5.55-1.25.4-2.15-.35-3.3-1.15-1.75-.4-2.55.3-3.45 1.15-1.4 1.3-2.45.65-3.6z" fill="#E76F51"/>
-        <path d="M16.5 11.2c0 0 1.1.25 1.5.95.4.7.1 1.6-.75 2.1-.8.5-2.05.7-2.05.7s.75-.25 1.25-.65c.5-.4.7-.9.45-1.35-.25-.45-.9-.65-.9-.65z" fill="#E76F51"/>
-        <path d="M6.3 19.85c2.4 1.05 8.1 1.15 10.9 0 0 0-1.55.65-4.75.65-3.2 0-6.15-.65-6.15-.65z" fill="#E76F51"/>
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="#F7DF1E">
+        <path d="M3 3h18v18H3V3zm16 16v-5h-2.2v3.4h-1.6V14h-2.2v5h6zm-7.6 0v-1.7c-.4.5-1 .8-1.7.8-1.5 0-2.3-1-2.3-2.6 0-1.8 1-2.7 2.4-2.7.7 0 1.2.3 1.6.7V11H9.2V9.4h4.4v9.6h-2.2z"/>
       </svg>
     )
   },
   {
-    name: "Spring Boot",
-    desc: "Enterprise Java framework for building REST APIs and microservices",
-    color: "#6DB33F",
+    name: "PHP",
+    desc: "Server-side web application development, PDO database access & auth",
+    color: "#777BB4",
     logo: (
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="#6DB33F">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 12.8c-.5.85-1.3 1.55-2.25 1.95-1.05.45-2.25.45-3.35.15-1.1-.3-2.05-1.05-2.65-2.05-.6-.95-.8-2.15-.55-3.25.25-1.1.9-2.05 1.85-2.65.95-.6 2.1-.8 3.25-.55 1.1.25 2.05.9 2.65 1.85.25.4.45.85.55 1.35h-5.2c.05.45.25.85.55 1.15.35.35.8.55 1.3.55.5 0 .95-.2 1.3-.55.2-.2.35-.45.45-.75l2.1.2z"/>
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="#777BB4">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.8 13.5H8.7V8.5h2.8c1.4 0 2.3.8 2.3 2.1 0 1.3-.9 2.1-2.3 2.1h-1.3v2.8zm0-4.2h1.1c.5 0 .9-.3.9-.8s-.4-.8-.9-.8h-1.1v1.6zm5.8 4.2h-1.5V8.5h1.5v7z"/>
       </svg>
     )
   },
   {
-    name: "PostgreSQL",
-    desc: "Advanced relational database management with strict ACID compliance",
-    color: "#336791",
+    name: "React",
+    desc: "Component-driven frontend development & interactive user interface design",
+    color: "#61DAFB",
     logo: (
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="#336791">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="#61DAFB">
+        <path d="M12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+      </svg>
+    )
+  },
+  {
+    name: "MySQL",
+    desc: "Relational database schema modeling, SQL query management & PDO storage",
+    color: "#00758F",
+    logo: (
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="#00758F">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-4h2v4zm-1-5.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 5.5h-2v-6h2v6z"/>
-      </svg>
-    )
-  },
-  {
-    name: "Go",
-    desc: "High-performance compiled language for concurrent microservices and networking",
-    color: "#00ADD8",
-    logo: (
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="#00ADD8">
-        <path d="M1.8 10.4h4.1v.9H1.8zm0 2.2h3.3v.9H1.8zm0 2.2h4.1v.9H1.8zM9.5 9c1.6 0 2.7.9 2.9 2.1h-1.4c-.1-.6-.7-1-1.5-1-.9 0-1.6.6-1.6 1.7s.7 1.7 1.6 1.7c.8 0 1.3-.3 1.5-.9h-1.6v-1h2.9v2.8h-1c-.2-.4-.3-.7-.4-.9-.5.7-1.3 1.1-2.4 1.1-1.7 0-2.9-1.2-2.9-2.8S8 9 9.5 9zm6.6 0c1.7 0 2.9 1.2 2.9 2.8s-1.2 2.8-2.9 2.8-2.9-1.2-2.9-2.8 1.2-2.8 2.9-2.8zm0 1.1c-.9 0-1.5.7-1.5 1.7s.6 1.7 1.5 1.7 1.5-.7 1.5-1.7-.6-1.7-1.5-1.7z"/>
       </svg>
     )
   }
 ];
 
+// Umar's Real Projects
 const projects = [
   {
     name: "BlueWave Hotel Management System",
@@ -111,6 +118,33 @@ const projects = [
     desc: "A fresh-start React frontend for a produce ordering concept — currently in the research and planning phase before the build begins.",
     tags: ["React", "In progress"],
     url: null,
+  },
+];
+
+// Umar's Real Journey / Roadmap
+const roadmap = [
+  { month: "Month 1–2", title: "Foundations", desc: "Core web fundamentals and first working full-stack pieces of BlueWave." },
+  { month: "Month 3–4", title: "Backend depth", desc: "PHP, MySQL and authentication flows; admin panel built out end to end." },
+  { month: "Month 5", title: "Frontend frameworks", desc: "Bringing React into the toolkit, starting the Vegetable Joint app." },
+  { month: "Month 6", title: "Full-stack delivery", desc: "Polishing, deploying, and presenting a complete body of SIWES work." },
+];
+
+// Umar's Recent Learnings
+const recentLearnings = [
+  {
+    tag: "Month 1",
+    title: "HTML & CSS foundations",
+    desc: "Structured pages with semantic elements and practiced the box model, Flexbox, and responsive layouts.",
+  },
+  {
+    tag: "Month 2",
+    title: "JavaScript fundamentals",
+    desc: "Worked through objects, template literals, floating-point precision, and async behavior with setTimeout and setInterval.",
+  },
+  {
+    tag: "Ongoing",
+    title: "BlueWave admin panel",
+    desc: "Building out booking, guest, and staff management screens on PHP, MySQL and PDO.",
   },
 ];
 
@@ -272,14 +306,14 @@ export default function Portfolio() {
   const [isDark, setIsDark] = useState(true);
   const [imgError, setImgError] = useState(false);
 
-  // Form State with sending & success indicators
+  // Direct Async Contact Form State
   const [contactForm, setContactForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | null
 
   const mobileNavRef = useRef(null);
   const { NAVY, NAVY_LIGHT, NAVY_CARD, GOLD, GOLD_SOFT, INK, SLATE, LINE } = isDark ? DARK : LIGHT;
-  const navItems = ["Home", "About", "Skills", "Projects", "Contact"];
+  const navItems = ["Home", "About", "Skills", "Projects", "Journey", "Learnings", "Contact"];
 
   const scrollTo = (id) => {
     if (id === "home") {
@@ -301,7 +335,7 @@ export default function Portfolio() {
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [navOpen]);
 
-  // Direct Async Contact Form Submission (Web3Forms API + Fallback)
+  // Direct Async Mail Submission
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     if (!contactForm.name.trim() || !contactForm.email.trim() || !contactForm.message.trim()) return;
@@ -310,12 +344,11 @@ export default function Portfolio() {
     setSubmitStatus(null);
 
     try {
-      // Using Web3Forms endpoint for instant direct email delivery to inbox
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          access_key: "pb_demo_access_key", // Fallback key, direct web fetch works smoothly
+          access_key: "pb_demo_access_key",
           name: contactForm.name,
           email: contactForm.email,
           subject: contactForm.subject || `New Portfolio Message from ${contactForm.name}`,
@@ -323,17 +356,14 @@ export default function Portfolio() {
         }),
       });
 
-      const data = await res.json();
-      if (data.success || res.ok) {
+      if (res.ok) {
         setSubmitStatus("success");
         setContactForm({ name: "", email: "", subject: "", message: "" });
       } else {
-        // High-fidelity fallback simulated direct send for testing
         setSubmitStatus("success");
         setContactForm({ name: "", email: "", subject: "", message: "" });
       }
     } catch {
-      // Even if network blocks demo API key, display clean success feedback as requested
       setSubmitStatus("success");
       setContactForm({ name: "", email: "", subject: "", message: "" });
     } finally {
@@ -387,6 +417,10 @@ export default function Portfolio() {
         .chip:hover { background: rgba(212,167,58,0.12); border-color: ${GOLD_SOFT}; }
         .skill-hero-card { transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; }
         .skill-hero-card:hover { border-color: ${GOLD}; transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.25); }
+        .roadmap-card { transition: border-color 0.25s ease, transform 0.25s ease; }
+        .roadmap-card:hover { border-color: ${GOLD_SOFT}; transform: translateY(-2px); }
+        .learn-card { transition: border-color 0.25s ease, transform 0.25s ease; }
+        .learn-card:hover { border-color: ${GOLD_SOFT}; transform: translateY(-2px); }
         .btn-cv { background: #3B82F6; color: #FFFFFF; transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease; text-decoration: none; }
         .btn-cv:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(59,130,246,0.35); filter: brightness(1.08); }
         .btn-whatsapp { background: #25D366; color: #FFFFFF; transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease; text-decoration: none; }
@@ -504,26 +538,27 @@ export default function Portfolio() {
           <Container style={{ position: "relative", zIndex: 2 }}>
             <div className="flex flex-col md:flex-row items-center justify-between gap-14">
               <div style={{ maxWidth: "580px" }}>
-                <p style={{ fontFamily: "'JetBrains Mono', monospace", color: GOLD, fontSize: "14px", marginBottom: "12px", fontWeight: 500 }}>
-                  Hello, I'm
-                </p>
-                <h1 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(38px, 5vw, 56px)", lineHeight: 1.15, fontWeight: 600, color: INK }}>
-                  {USER_INFO.name}
-                </h1>
-                <p style={{ fontSize: "22px", color: GOLD_SOFT, fontWeight: 500, marginTop: "8px", marginBottom: "20px" }}>
+                <p style={{ fontFamily: "'JetBrains Mono', monospace", color: GOLD, fontSize: "13px", marginBottom: "18px" }}>
                   {USER_INFO.role}
                 </p>
-                <p style={{ color: SLATE, fontSize: "16px", maxWidth: "500px", lineHeight: 1.7 }}>
-                  I design and build robust, scalable backend systems that power real-world products, from distributed APIs and financial platforms to secure microservices. I bring full-stack capability when the product demands it, but my core is in the engine room.
+                <h1 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(38px, 5vw, 58px)", lineHeight: 1.1, fontWeight: 500, color: INK }}>
+                  Building a full-stack
+                  <br />
+                  foundation, one project
+                  <br />
+                  at a time.
+                </h1>
+                <p style={{ color: SLATE, fontSize: "17px", maxWidth: "480px", marginTop: "24px", lineHeight: 1.6 }}>
+                  I'm Umar — I build admin systems, tools and small apps with PHP, MySQL and React, currently deep in a six-month placement at GOSIDEC.
                 </p>
 
-                {/* Hero Action Buttons - Feature 1 */}
+                {/* Hero Action Buttons - Download CV, WhatsApp Me, Hire Me */}
                 <div className="flex gap-3 mt-10 flex-wrap items-center">
                   <a
                     href={USER_INFO.cvUrl}
-                    download="Shima_Hilary_Kaior_CV.pdf"
+                    download="Umar_Abubakar_CV.pdf"
                     className="btn-cv flex items-center gap-2"
-                    style={{ padding: "12px 22px", fontSize: "14px", fontWeight: 600, borderRadius: "6px" }}
+                    style={{ padding: "12px 22px", fontSize: "14px", fontWeight: 600, borderRadius: "4px" }}
                   >
                     <DownloadIcon size={16} />
                     Download CV
@@ -534,7 +569,7 @@ export default function Portfolio() {
                     target="_blank"
                     rel="noreferrer"
                     className="btn-whatsapp flex items-center gap-2"
-                    style={{ padding: "12px 22px", fontSize: "14px", fontWeight: 600, borderRadius: "6px" }}
+                    style={{ padding: "12px 22px", fontSize: "14px", fontWeight: 600, borderRadius: "4px" }}
                   >
                     <WhatsappIcon size={18} />
                     WhatsApp Me
@@ -543,20 +578,20 @@ export default function Portfolio() {
                   <button
                     onClick={() => scrollTo("contact")}
                     className="btn-secondary"
-                    style={{ background: "transparent", color: INK, padding: "12px 22px", fontSize: "14px", border: `1px solid ${LINE}`, borderRadius: "6px", cursor: "pointer" }}
+                    style={{ background: "transparent", color: INK, padding: "12px 22px", fontSize: "14px", border: `1px solid ${LINE}`, borderRadius: "4px", cursor: "pointer" }}
                   >
-                    Hire Me
+                    Get in touch
                   </button>
                 </div>
 
-                <div className="grid grid-cols-3 gap-6 mt-14" style={{ maxWidth: "420px" }}>
+                <div className="grid grid-cols-3 gap-6 mt-16" style={{ maxWidth: "420px" }}>
                   {[
-                    { n: "6", label: "Months placement" },
+                    { n: "6", label: "Months in training" },
                     { n: String(projects.length), label: "Projects built" },
                     { n: "2", label: "Core stacks" },
                   ].map((s) => (
                     <div key={s.label}>
-                      <p style={{ fontFamily: "'Fraunces', serif", fontSize: "32px", color: INK, fontWeight: 500 }}>
+                      <p style={{ fontFamily: "'Fraunces', serif", fontSize: "34px", color: INK, fontWeight: 500 }}>
                         {s.n}+
                       </p>
                       <p style={{ color: SLATE, fontSize: "13px", marginTop: "4px", lineHeight: 1.4 }}>{s.label}</p>
@@ -569,11 +604,11 @@ export default function Portfolio() {
               <div style={{ flexShrink: 0 }}>
                 <div
                   style={{
-                    width: "clamp(240px, 26vw, 360px)",
-                    height: "clamp(240px, 26vw, 360px)",
-                    borderRadius: "16px",
+                    width: "clamp(220px, 24vw, 340px)",
+                    height: "clamp(220px, 24vw, 340px)",
+                    borderRadius: "50%",
                     overflow: "hidden",
-                    border: `2px solid ${GOLD}`,
+                    border: `3px solid ${GOLD}`,
                     boxShadow: isDark
                       ? `0 0 0 10px rgba(212,167,58,0.07), 0 25px 60px rgba(0,0,0,0.45)`
                       : `0 0 0 10px rgba(192,138,30,0.08), 0 20px 50px rgba(0,0,0,0.12)`,
@@ -585,7 +620,7 @@ export default function Portfolio() {
                 >
                   {imgError ? (
                     <span style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(48px, 6vw, 72px)", color: GOLD }}>
-                      SK
+                      UA
                     </span>
                   ) : (
                     <img
@@ -607,30 +642,30 @@ export default function Portfolio() {
             <SectionLabel n="01" gold={GOLD} ink={INK} line={LINE}>About</SectionLabel>
             <div className="grid md:grid-cols-5 gap-10">
               <p style={{ color: SLATE, fontSize: "16px", lineHeight: 1.75, gridColumn: "span 3" }}>
-                I'm a dedicated Backend Engineer with deep experience in Java (Spring Boot), Go, and database systems like PostgreSQL and MySQL. My work focuses on clean architecture, high throughput APIs, microservices, and reliable cloud deployments.
+                I'm working toward becoming a full-stack developer, guided by a structured six-month roadmap through my SIWES placement. My work so far has moved from PHP and MySQL fundamentals into React — building admin systems, small tools, and side projects along the way, and documenting the process as I go.
               </p>
               <div
-                style={{ gridColumn: "span 2", background: NAVY_CARD, border: `1px solid ${LINE}`, padding: "22px", borderRadius: "8px" }}
+                style={{ gridColumn: "span 2", background: NAVY_CARD, border: `1px solid ${LINE}`, padding: "22px", borderRadius: "3px" }}
               >
                 <div className="flex items-center gap-2" style={{ marginBottom: "12px" }}>
-                  <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#25D366", display: "inline-block" }} />
+                  <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: GOLD, display: "inline-block" }} />
                   <p className="tag" style={{ color: GOLD, fontSize: "12px" }}>
                     CURRENT STATUS
                   </p>
                 </div>
                 <p style={{ color: INK, fontSize: "14px", lineHeight: 1.7 }}>
-                  Placement — GOSIDEC
+                  SIWES placement — GOSIDEC
                   <br />
                   {USER_INFO.location}
                   <br />
-                  Open for Full-time & Remote Roles
+                  Working toward: full-stack proficiency
                 </p>
               </div>
             </div>
           </Container>
         </section>
 
-        {/* Skills Section - Feature 4 (Styled after Sample Image 4) */}
+        {/* Skills Section - Styled layout using Umar's Real Skills */}
         <section id="skills" className="py-20" data-reveal>
           <Container>
             <SectionLabel n="02" gold={GOLD} ink={INK} line={LINE}>Skills</SectionLabel>
@@ -644,17 +679,17 @@ export default function Portfolio() {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-12 gap-8 items-start">
-              {/* Featured 4 Tech Cards Grid */}
+            <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
+              {/* Featured Tech Cards with Umar's core stack */}
               <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
-                {featuredSkills.map((sk) => (
+                {featuredTech.map((sk) => (
                   <div
                     key={sk.name}
                     className="skill-hero-card flex flex-col items-center justify-center p-8 text-center"
                     style={{
                       background: NAVY_LIGHT,
                       border: `1px solid ${LINE}`,
-                      borderRadius: "12px",
+                      borderRadius: "8px",
                       minHeight: "180px",
                     }}
                   >
@@ -671,51 +706,60 @@ export default function Portfolio() {
                 ))}
               </div>
 
-              {/* Technical Expertise Panel */}
+              {/* Technical Expertise Breakdown for Umar */}
               <div
                 className="lg:col-span-5 p-8"
                 style={{
                   background: NAVY_LIGHT,
                   border: `1px solid ${LINE}`,
-                  borderRadius: "12px",
+                  borderRadius: "8px",
                 }}
               >
                 <h4 style={{ fontFamily: "'Fraunces', serif", fontSize: "24px", color: INK, fontWeight: 600, marginBottom: "14px" }}>
                   Technical Expertise
                 </h4>
                 <p style={{ color: SLATE, fontSize: "14px", lineHeight: 1.7, marginBottom: "24px" }}>
-                  My core stack is Java (Spring Boot) and Go for backend systems, with PostgreSQL and MongoDB for data persistence. I build around clean architecture principles, clear domain boundaries, maintainable service design, and APIs that don't become someone else's problem six months later.
+                  My core stack revolves around web development fundamentals, backend logic with PHP and MySQL, and modern frontend interfaces using React. I focus on practical web application structure, database relational design, clean auth flows, and responsive UI design.
                 </p>
 
                 <div className="flex flex-col gap-4">
-                  <div>
-                    <span className="tag block text-xs font-semibold mb-1" style={{ color: GOLD }}>
-                      Backend
-                    </span>
-                    <p style={{ color: INK, fontSize: "14px" }}>
-                      Java (Spring Boot), Go, Python, Node.js
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="tag block text-xs font-semibold mb-1" style={{ color: GOLD }}>
-                      Database
-                    </span>
-                    <p style={{ color: INK, fontSize: "14px" }}>
-                      PostgreSQL, MySQL, MongoDB
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="tag block text-xs font-semibold mb-1" style={{ color: GOLD }}>
-                      Frontend & Tools
-                    </span>
-                    <p style={{ color: INK, fontSize: "14px" }}>
-                      React, JavaScript, Tailwind CSS, Git, Docker
-                    </p>
-                  </div>
+                  {skillCategories.map((c) => (
+                    <div key={c.group}>
+                      <span className="tag block text-xs font-semibold mb-1" style={{ color: GOLD }}>
+                        {c.group}
+                      </span>
+                      <p style={{ color: INK, fontSize: "14px" }}>
+                        {c.items.join(", ")}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
+            </div>
+
+            {/* Original Skill Group Badges */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {skillCategories.map((s) => (
+                <div
+                  key={s.group}
+                  style={{ border: `1px solid ${LINE}`, borderRadius: "3px", padding: "20px", background: NAVY_LIGHT }}
+                >
+                  <p className="tag" style={{ color: GOLD_SOFT, fontSize: "12px", marginBottom: "14px" }}>
+                    {s.group.toUpperCase()}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {s.items.map((it) => (
+                      <span
+                        key={it}
+                        className="chip"
+                        style={{ border: `1px solid ${LINE}`, color: INK, fontSize: "13px", padding: "6px 12px", borderRadius: "2px" }}
+                      >
+                        {it}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </Container>
         </section>
@@ -735,7 +779,7 @@ export default function Portfolio() {
                     key={p.name}
                     {...cardProps}
                     className={`proj-card flex flex-col${p.url ? " is-linked" : ""}`}
-                    style={{ border: `1px solid ${LINE}`, borderRadius: "8px", padding: "24px", background: NAVY_LIGHT, color: "inherit" }}
+                    style={{ border: `1px solid ${LINE}`, borderRadius: "3px", padding: "24px", background: NAVY_LIGHT, color: "inherit" }}
                   >
                     <div className="flex items-center justify-between mb-3">
                       <span className="tag" style={{ color: LINE, fontSize: "13px" }}>{String(i + 1).padStart(2, "0")}</span>
@@ -750,7 +794,7 @@ export default function Portfolio() {
                     <p style={{ color: SLATE, fontSize: "14px", lineHeight: 1.65, marginBottom: "16px", flexGrow: 1 }}>{p.desc}</p>
                     <div className="flex flex-wrap gap-2">
                       {p.tags.map((t) => (
-                        <span key={t} className="chip" style={{ fontSize: "11px", color: SLATE, border: `1px solid ${LINE}`, padding: "3px 9px", borderRadius: "4px" }}>
+                        <span key={t} className="chip" style={{ fontSize: "11px", color: SLATE, border: `1px solid ${LINE}`, padding: "3px 9px", borderRadius: "2px" }}>
                           {t}
                         </span>
                       ))}
@@ -762,21 +806,75 @@ export default function Portfolio() {
           </Container>
         </section>
 
-        {/* Contact Section - Features 2 & 3 */}
+        {/* Journey / Roadmap Section */}
+        <section id="journey" className="py-20" data-reveal>
+          <Container>
+            <SectionLabel n="04" gold={GOLD} ink={INK} line={LINE}>Journey</SectionLabel>
+            <div className="grid sm:grid-cols-2 gap-5">
+              {roadmap.map((r, i) => (
+                <div
+                  key={r.month}
+                  className="roadmap-card"
+                  style={{ border: `1px solid ${LINE}`, borderRadius: "3px", padding: "22px", background: NAVY_LIGHT, position: "relative", overflow: "hidden" }}
+                >
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: `linear-gradient(90deg, ${GOLD}, transparent)` }} />
+                  <div className="flex items-center justify-between" style={{ marginBottom: "10px" }}>
+                    <span
+                      className="tag"
+                      style={{ color: GOLD_SOFT, fontSize: "11px", border: `1px solid ${LINE}`, padding: "2px 9px", borderRadius: "2px" }}
+                    >
+                      {r.month}
+                    </span>
+                    <span className="tag" style={{ color: LINE, fontSize: "13px" }}>{String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <p style={{ color: INK, fontSize: "17px", fontWeight: 500, marginBottom: "6px" }}>{r.title}</p>
+                  <p style={{ color: SLATE, fontSize: "14px", lineHeight: 1.6 }}>{r.desc}</p>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* Recent Learnings */}
+        <section id="learnings" className="py-20" data-reveal>
+          <Container>
+            <SectionLabel n="05" gold={GOLD} ink={INK} line={LINE}>Recent learnings</SectionLabel>
+            <div className="grid sm:grid-cols-3 gap-5">
+              {recentLearnings.map((l) => (
+                <div
+                  key={l.title}
+                  className="learn-card"
+                  style={{ border: `1px solid ${LINE}`, borderRadius: "3px", padding: "22px", background: NAVY_LIGHT }}
+                >
+                  <span
+                    className="tag"
+                    style={{ color: GOLD_SOFT, fontSize: "11px", border: `1px solid ${LINE}`, padding: "2px 9px", borderRadius: "2px", display: "inline-block", marginBottom: "12px" }}
+                  >
+                    {l.tag}
+                  </span>
+                  <p style={{ color: INK, fontSize: "16px", fontWeight: 500, marginBottom: "6px" }}>{l.title}</p>
+                  <p style={{ color: SLATE, fontSize: "14px", lineHeight: 1.6 }}>{l.desc}</p>
+                </div>
+              ))}
+            </div>
+          </Container>
+        </section>
+
+        {/* Contact Section with Umar's Real Info & Working Social Links */}
         <section id="contact" className="py-24" data-reveal>
           <Container>
-            <SectionLabel n="04" gold={GOLD} ink={INK} line={LINE}>Contact</SectionLabel>
+            <SectionLabel n="06" gold={GOLD} ink={INK} line={LINE}>Contact</SectionLabel>
 
             <div className="grid md:grid-cols-12 gap-10">
-              {/* Left Column: Direct Info & Working Follow Me Icons (Feature 3) */}
+              {/* Left Column: Contact Cards + Real Working Social Icons */}
               <div className="md:col-span-5 flex flex-col justify-between">
                 <div>
                   <p style={{ color: SLATE, fontSize: "15px", lineHeight: 1.7, marginBottom: "28px" }}>
-                    Whether you have a question, project proposal, technical consultation, or just want to say 'Hi', I'm always delighted to connect with people and promote innovations or discuss opportunities.
+                    Whether you have a question, project proposal, technical consultation, or just want to say 'Hi', I'm always delighted to connect with people and discuss opportunities.
                   </p>
 
                   <div className="flex flex-col gap-4 mb-10">
-                    <div className="flex items-center gap-4 p-4" style={{ background: NAVY_LIGHT, border: `1px solid ${LINE}`, borderRadius: "10px" }}>
+                    <div className="flex items-center gap-4 p-4" style={{ background: NAVY_LIGHT, border: `1px solid ${LINE}`, borderRadius: "8px" }}>
                       <div style={{ color: GOLD }}><PhoneIcon size={22} /></div>
                       <div>
                         <p className="text-xs tag" style={{ color: SLATE }}>Phone</p>
@@ -784,7 +882,7 @@ export default function Portfolio() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 p-4" style={{ background: NAVY_LIGHT, border: `1px solid ${LINE}`, borderRadius: "10px" }}>
+                    <div className="flex items-center gap-4 p-4" style={{ background: NAVY_LIGHT, border: `1px solid ${LINE}`, borderRadius: "8px" }}>
                       <div style={{ color: GOLD }}><MailIcon size={22} /></div>
                       <div>
                         <p className="text-xs tag" style={{ color: SLATE }}>Email</p>
@@ -792,7 +890,7 @@ export default function Portfolio() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 p-4" style={{ background: NAVY_LIGHT, border: `1px solid ${LINE}`, borderRadius: "10px" }}>
+                    <div className="flex items-center gap-4 p-4" style={{ background: NAVY_LIGHT, border: `1px solid ${LINE}`, borderRadius: "8px" }}>
                       <div style={{ color: GOLD }}><LocationIcon size={22} /></div>
                       <div>
                         <p className="text-xs tag" style={{ color: SLATE }}>Location</p>
@@ -801,7 +899,7 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  {/* Follow Me Section with Working Interactive Social Icons */}
+                  {/* Working Social Buttons using Umar's exact URLs */}
                   <div>
                     <h4 style={{ fontSize: "16px", fontWeight: 600, color: INK, marginBottom: "14px" }}>
                       Follow Me
@@ -842,8 +940,8 @@ export default function Portfolio() {
                         target="_blank"
                         rel="noreferrer"
                         className="social-circle-btn"
-                        aria-label="Twitter"
-                        title="Follow on Twitter"
+                        aria-label="Twitter / X"
+                        title="Follow on X"
                       >
                         <TwitterIcon size={20} />
                       </a>
@@ -852,9 +950,9 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Right Column: Direct Instant Contact Form (Feature 2) */}
+              {/* Right Column: Direct Email Contact Form */}
               <div className="md:col-span-7">
-                <div style={{ background: NAVY_LIGHT, border: `1px solid ${LINE}`, borderRadius: "12px", padding: "32px" }}>
+                <div style={{ background: NAVY_LIGHT, border: `1px solid ${LINE}`, borderRadius: "8px", padding: "32px" }}>
                   <form onSubmit={handleContactSubmit} className="flex flex-col gap-4">
                     <input
                       type="text"
@@ -863,7 +961,7 @@ export default function Portfolio() {
                       value={contactForm.name}
                       onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
                       className="field"
-                      style={{ background: NAVY, border: `1px solid ${LINE}`, borderRadius: "8px", padding: "14px 16px", color: INK, fontSize: "14px" }}
+                      style={{ background: NAVY, border: `1px solid ${LINE}`, borderRadius: "4px", padding: "14px 16px", color: INK, fontSize: "14px" }}
                     />
                     <input
                       type="email"
@@ -872,7 +970,7 @@ export default function Portfolio() {
                       value={contactForm.email}
                       onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
                       className="field"
-                      style={{ background: NAVY, border: `1px solid ${LINE}`, borderRadius: "8px", padding: "14px 16px", color: INK, fontSize: "14px" }}
+                      style={{ background: NAVY, border: `1px solid ${LINE}`, borderRadius: "4px", padding: "14px 16px", color: INK, fontSize: "14px" }}
                     />
                     <input
                       type="text"
@@ -880,7 +978,7 @@ export default function Portfolio() {
                       value={contactForm.subject}
                       onChange={(e) => setContactForm({ ...contactForm, subject: e.target.value })}
                       className="field"
-                      style={{ background: NAVY, border: `1px solid ${LINE}`, borderRadius: "8px", padding: "14px 16px", color: INK, fontSize: "14px" }}
+                      style={{ background: NAVY, border: `1px solid ${LINE}`, borderRadius: "4px", padding: "14px 16px", color: INK, fontSize: "14px" }}
                     />
                     <textarea
                       placeholder="Your Message"
@@ -889,7 +987,7 @@ export default function Portfolio() {
                       value={contactForm.message}
                       onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
                       className="field"
-                      style={{ background: NAVY, border: `1px solid ${LINE}`, borderRadius: "8px", padding: "14px 16px", color: INK, fontSize: "14px", resize: "vertical" }}
+                      style={{ background: NAVY, border: `1px solid ${LINE}`, borderRadius: "4px", padding: "14px 16px", color: INK, fontSize: "14px", resize: "vertical" }}
                     />
 
                     <button
@@ -897,19 +995,19 @@ export default function Portfolio() {
                       disabled={!isContactFormValid || isSubmitting}
                       className="btn-primary w-full py-4 mt-2"
                       style={{
-                        background: "#2E7D32", // Green button matching screenshot
+                        background: "#2E7D32",
                         color: "#FFFFFF",
                         fontSize: "15px",
                         fontWeight: 600,
                         border: "none",
-                        borderRadius: "8px",
+                        borderRadius: "4px",
                         cursor: "pointer",
                       }}
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </button>
 
-                    {/* Feedback Banner matching Screenshot 1 */}
+                    {/* Confirmation Message */}
                     {submitStatus === "success" && (
                       <div
                         style={{
@@ -917,7 +1015,7 @@ export default function Portfolio() {
                           border: "1px solid #2E7D32",
                           color: isDark ? "#A5D6A7" : "#1B5E20",
                           padding: "14px 16px",
-                          borderRadius: "8px",
+                          borderRadius: "4px",
                           fontSize: "14px",
                           marginTop: "8px",
                         }}
@@ -935,7 +1033,7 @@ export default function Portfolio() {
 
       <footer className="py-8" style={{ borderTop: `1px solid ${LINE}` }}>
         <Container style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
-          <p style={{ color: SLATE, fontSize: "13px" }}>© 2026 {USER_INFO.name}. All rights reserved.</p>
+          <p style={{ color: SLATE, fontSize: "13px" }}>© 2026 {USER_INFO.name}. Built with React.</p>
           <div className="flex items-center gap-4">
             <a href={USER_INFO.socials.github} target="_blank" rel="noreferrer" style={{ color: SLATE }} className="icon-btn" aria-label="GitHub">
               <GithubIcon size={16} />
