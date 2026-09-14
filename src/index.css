@@ -1,4 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
-A ABDULKADIR NGR SECURITY
-    
+/* ============================================================================
+   DESIGN SYSTEM THEME VARIABLES
+   ============================================================================ */
+
+:root,
+[data-theme="dark"] {
+  --bg-navy: #0A1929;
+  --bg-navy-light: #122943;
+  --bg-navy-card: #152E4B;
+  --color-gold: #D4A73A;
+  --color-gold-soft: #B8934A;
+  --color-ink: #EDE8DC;
+  --color-slate: #8D9AAE;
+  --color-line: #25405E;
+  --color-on-accent: #0A1929;
+}
+
+[data-theme="light"] {
+  --bg-navy: #F7F5F0;
+  --bg-navy-light: #FFFFFF;
+  --bg-navy-card: #FFFFFF;
+  --color-gold: #C08A1E;
+  --color-gold-soft: #A6771A;
+  --color-ink: #1B2430;
+  --color-slate: #5B6472;
+  --color-line: #E1DCD0;
+  --color-on-accent: #0A1929;
+}
+
+/* ============================================================================
+   BASE & RESET STYLES
+   ============================================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-navy);
+  color: var(--color-ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+/* ============================================================================
+   SCROLL REVEAL ANIMATION
+   ============================================================================ */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+/* ============================================================================
+   COMPONENT & UI STYLES
+   ============================================================================ */
+
+/* Navigation Links */
+.navlink {
+  position: relative;
+  cursor: pointer;
+}
+
+.navlink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.25s ease;
+}
+
+.navlink:hover::after {
+  width: 100%;
+}
+
+/* Project Cards */
+.proj-card {
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
+  text-decoration: none;
+}
+
+.proj-card.is-linked {
+  cursor: pointer;
+}
+
+.proj-card:hover {
+  border-color: var(--color-gold-soft);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+}
+
+.proj-arrow {
+  display: inline-flex;
+  color: var(--color-slate);
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.proj-card:hover .proj-arrow {
+  transform: translate(2px, -2px);
+  color: var(--color-gold);
+}
+
+/* Chips & Badges */
+.chip {
+  font-family: 'JetBrains Mono', monospace;
+  background: rgba(128, 128, 128, 0.08);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.chip:hover {
+  background: rgba(212, 167, 58, 0.12);
+  border-color: var(--color-gold-soft);
+}
+
+/* Skill Hero Cards */
+.skill-hero-card {
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-hero-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+/* Roadmap & Learning Cards */
+.roadmap-card {
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.roadmap-card:hover {
+  border-color: var(--color-gold-soft);
+  transform: translateY(-2px);
+}
+
+.learn-card {
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.learn-card:hover {
+  border-color: var(--color-gold-soft);
+  transform: translateY(-2px);
+}
+
+/* Action Buttons */
+.btn-cv {
+  background: #3B82F6;
+  color: #FFFFFF;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-cv:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(59, 130, 246, 0.35);
+  filter: brightness(1.08);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #FFFFFF;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.35);
+  filter: brightness(1.08);
+}
+
+.btn-primary {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(212, 167, 58, 0.28);
+  filter: brightness(1.05);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-gold-soft);
+  color: var(--color-gold);
+  background: rgba(212, 167, 58, 0.06);
+}
+
+/* Icon Buttons & Social Buttons */
+.icon-btn {
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.icon-btn:hover {
+  border-color: var(--color-gold-soft);
+  color: var(--color-gold);
+  background: rgba(212, 167, 58, 0.08);
+  transform: translateY(-2px);
+}
+
+.social-circle-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+  background: rgba(128, 128, 128, 0.08);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.social-circle-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: rgba(212, 167, 58, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Controls & Tags */
+.field {
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.field:focus {
+  border-color: var(--color-gold-soft);
+  outline: none;
+}
+
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Accessibility Skip Link */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  background: var(--color-gold);
+  color: var(--color-on-accent);
+  padding: 10px 16px;
+  border-radius: 2px;
+  font-size: 13px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-on-accent);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}

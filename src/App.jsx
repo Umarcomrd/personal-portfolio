@@ -1,32 +1,62 @@
+/**
+ * ============================================================================
+ * UMAR ABUBAKAR - PERSONAL PORTFOLIO APPLICATION
+ * ============================================================================
+ * A modern, responsive, and accessible personal portfolio website built with React.
+ * 
+ * Features:
+ * - Dynamic Dark / Light theme switching with curated color tokens.
+ * - Smooth scroll navigation and section reveal animations (Intersection Observer).
+ * - Interactive hero section with direct CV download and WhatsApp chat buttons.
+ * - Visual skills section featuring brand technology cards & technical breakdown.
+ * - Interactive project showcase cards with live repository links.
+ * - 6-month placement roadmap and learning logbook.
+ * - Direct asynchronous email contact form with Web3Forms & mailto fallback.
+ * - Responsive navigation bar with mobile drawer support.
+ */
+
 import { useState, useEffect, useRef } from "react";
 import umarPhoto from "./assets/umar.jpg";
 
+// ============================================================================
+// DESIGN SYSTEM TOKENS & CONSTANTS
+// ============================================================================
+
+/** Fixed text color used on top of gold accent buttons for high contrast */
 const ON_ACCENT = "#0A1929";
+
+/** Standard max-width container boundary for main content layout */
 const CONTAINER = "1180px";
 
+/** Dark mode color theme palette */
 const DARK = {
-  NAVY: "#0A1929",
-  NAVY_LIGHT: "#122943",
-  NAVY_CARD: "#152E4B",
-  GOLD: "#D4A73A",
-  GOLD_SOFT: "#B8934A",
-  INK: "#EDE8DC",
-  SLATE: "#8D9AAE",
-  LINE: "#25405E",
+  NAVY: "#0A1929",       // Main background
+  NAVY_LIGHT: "#122943", // Card / component background
+  NAVY_CARD: "#152E4B",  // Highlight panel background
+  GOLD: "#D4A73A",       // Primary accent gold
+  GOLD_SOFT: "#B8934A",  // Secondary muted gold
+  INK: "#EDE8DC",        // Primary text color (light cream)
+  SLATE: "#8D9AAE",      // Muted body text / subheadings
+  LINE: "#25405E",       // Borders and dividers
 };
 
+/** Light mode color theme palette */
 const LIGHT = {
-  NAVY: "#F7F5F0",
-  NAVY_LIGHT: "#FFFFFF",
-  NAVY_CARD: "#FFFFFF",
-  GOLD: "#C08A1E",
-  GOLD_SOFT: "#A6771A",
-  INK: "#1B2430",
-  SLATE: "#5B6472",
-  LINE: "#E1DCD0",
+  NAVY: "#F7F5F0",       // Main background (warm white)
+  NAVY_LIGHT: "#FFFFFF", // Card / component background
+  NAVY_CARD: "#FFFFFF",  // Highlight panel background
+  GOLD: "#C08A1E",       // Primary accent gold
+  GOLD_SOFT: "#A6771A",  // Secondary muted gold
+  INK: "#1B2430",        // Primary text color (dark charcoal)
+  SLATE: "#5B6472",      // Muted body text / subheadings
+  LINE: "#E1DCD0",       // Borders and dividers
 };
 
-// Umar's Real Information & Contact Details
+// ============================================================================
+// PROFILE & CONTACT DATA CONFIGURATION
+// ============================================================================
+
+/** Personal contact information and social profile links */
 const USER_INFO = {
   name: "Umar Abubakar",
   role: "Full-Stack Developer",
@@ -34,17 +64,23 @@ const USER_INFO = {
   phone: "+234 7072105145",
   rawPhone: "2347072105145",
   location: "Gombe State, Nigeria",
-  cvUrl: "/Umar_Abubakar_CV.pdf",
+  cvUrl: "/Umar_Abubakar_CV.pdf", // Download path for CV PDF in public directory
   socials: {
     whatsapp: "https://api.whatsapp.com/send/?phone=%2B2347072105145&text=Hello+Umar%21+I+saw+your+portfolio+and+would+like+to+discuss+further.",
     linkedin: "https://www.linkedin.com/in/umar-babawuro-abubakar-a1597b435/",
     github: "https://github.com/Umarcomrd",
     twitter: "https://x.com/design30354",
   },
+  /** Web3Forms API Key for receiving messages directly into inbox without mail client.
+   *  Replace "YOUR_WEB3FORMS_KEY" with your free key from https://web3forms.com */
   web3formsKey: "YOUR_WEB3FORMS_KEY"
 };
 
-// Umar's Real Skill Categories
+// ============================================================================
+// SKILLS & TECHNOLOGY DATA
+// ============================================================================
+
+/** Categorized list of technical skills displayed as chips and badges */
 const skillCategories = [
   { group: "Languages", items: ["JavaScript", "PHP", "SQL", "HTML5", "CSS3"] },
   { group: "Frontend", items: ["React", "Responsive Design", "Vanilla JS"] },
@@ -52,14 +88,14 @@ const skillCategories = [
   { group: "Tools", items: ["Git & GitHub", "XAMPP", "ngrok", "VS Code"] },
 ];
 
-// Umar's Featured Technology Cards (styled after sample screenshot layout)
+/** Core featured technologies showcased with custom SVG brand icons */
 const featuredTech = [
   {
     name: "JavaScript",
     desc: "Core web scripting, asynchronous logic & dynamic DOM interaction",
     color: "#F7DF1E",
     logo: (
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="#F7DF1E">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="#F7DF1E" aria-label="JavaScript Logo">
         <path d="M3 3h18v18H3V3zm16 16v-5h-2.2v3.4h-1.6V14h-2.2v5h6zm-7.6 0v-1.7c-.4.5-1 .8-1.7.8-1.5 0-2.3-1-2.3-2.6 0-1.8 1-2.7 2.4-2.7.7 0 1.2.3 1.6.7V11H9.2V9.4h4.4v9.6h-2.2z"/>
       </svg>
     )
@@ -69,7 +105,7 @@ const featuredTech = [
     desc: "Server-side web application development, PDO database access & auth",
     color: "#777BB4",
     logo: (
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="#777BB4">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="#777BB4" aria-label="PHP Logo">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.8 13.5H8.7V8.5h2.8c1.4 0 2.3.8 2.3 2.1 0 1.3-.9 2.1-2.3 2.1h-1.3v2.8zm0-4.2h1.1c.5 0 .9-.3.9-.8s-.4-.8-.9-.8h-1.1v1.6zm5.8 4.2h-1.5V8.5h1.5v7z"/>
       </svg>
     )
@@ -79,7 +115,7 @@ const featuredTech = [
     desc: "Component-driven frontend development & interactive user interface design",
     color: "#61DAFB",
     logo: (
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="#61DAFB">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="#61DAFB" aria-label="React Logo">
         <path d="M12 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
       </svg>
@@ -90,14 +126,18 @@ const featuredTech = [
     desc: "Relational database schema modeling, SQL query management & PDO storage",
     color: "#00758F",
     logo: (
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="#00758F">
+      <svg width="42" height="42" viewBox="0 0 24 24" fill="#00758F" aria-label="MySQL Logo">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 14.5h-2v-4h2v4zm-1-5.5c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 5.5h-2v-6h2v6z"/>
       </svg>
     )
   }
 ];
 
-// Umar's Real Projects
+// ============================================================================
+// PROJECTS, JOURNEY & LEARNING DATA
+// ============================================================================
+
+/** List of featured portfolio projects with descriptions and repository URLs */
 const projects = [
   {
     name: "BlueWave Hotel Management System",
@@ -122,7 +162,7 @@ const projects = [
   },
 ];
 
-// Umar's Real Journey / Roadmap
+/** 6-month placement roadmap outlining technical progression */
 const roadmap = [
   { month: "Month 1–2", title: "Foundations", desc: "Core web fundamentals and first working full-stack pieces of BlueWave." },
   { month: "Month 3–4", title: "Backend depth", desc: "PHP, MySQL and authentication flows; admin panel built out end to end." },
@@ -130,7 +170,7 @@ const roadmap = [
   { month: "Month 6", title: "Full-stack delivery", desc: "Polishing, deploying, and presenting a complete body of SIWES work." },
 ];
 
-// Umar's Recent Learnings
+/** Highlight entries from recent technical learning logbook */
 const recentLearnings = [
   {
     tag: "Month 1",
@@ -149,6 +189,15 @@ const recentLearnings = [
   },
 ];
 
+// ============================================================================
+// CUSTOM HELPER HOOKS
+// ============================================================================
+
+/**
+ * Custom Hook: useReveal
+ * Uses the Intersection Observer API to detect when elements with `data-reveal`
+ * enter the viewport, triggering smooth slide-up and fade-in animations.
+ */
 function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll("[data-reveal]");
@@ -171,6 +220,10 @@ function useReveal() {
   }, []);
 }
 
+/**
+ * Custom Hook: useScrollProgress
+ * Calculates page scroll completion percentage (0 - 100) to render the top progress bar.
+ */
 function useScrollProgress() {
   const [progress, setProgress] = useState(0);
   useEffect(() => {
@@ -186,6 +239,11 @@ function useScrollProgress() {
   return progress;
 }
 
+// ============================================================================
+// REUSABLE LAYOUT & HEADER COMPONENTS
+// ============================================================================
+
+/** Layout Container: Enforces horizontal padding and max container width */
 function Container({ children, style }) {
   return (
     <div className="px-6 md:px-12 lg:px-16" style={{ maxWidth: CONTAINER, margin: "0 auto", ...style }}>
@@ -194,6 +252,7 @@ function Container({ children, style }) {
   );
 }
 
+/** Section Label Component: Displays numbered section headings with a accent divider line */
 function SectionLabel({ n, gold, ink, line, children }) {
   return (
     <div className="flex items-baseline gap-3 mb-10">
@@ -208,7 +267,10 @@ function SectionLabel({ n, gold, ink, line, children }) {
   );
 }
 
-// Icon Components
+// ============================================================================
+// SVG ICON COMPONENTS
+// ============================================================================
+
 function GithubIcon({ size = 18 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -300,22 +362,37 @@ function MoonIcon({ size = 16 }) {
   );
 }
 
-export default function Portfolio() {
-  useReveal();
-  const scrollProgress = useScrollProgress();
-  const [navOpen, setNavOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true);
-  const [imgError, setImgError] = useState(false);
+// ============================================================================
+// MAIN APPLICATION COMPONENT
+// ============================================================================
 
-  // Direct Async Contact Form State
+export default function Portfolio() {
+  // Activate scroll reveal animations
+  useReveal();
+
+  // Track page scroll progress percentage
+  const scrollProgress = useScrollProgress();
+
+  // Component States
+  const [navOpen, setNavOpen] = useState(false);        // Mobile menu drawer open state
+  const [isDark, setIsDark] = useState(true);          // Theme toggle state (dark mode default)
+  const [imgError, setImgError] = useState(false);     // Portrait image load fallback state
+
+  // Contact Form States
   const [contactForm, setContactForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | null
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
+  // DOM Refs
   const mobileNavRef = useRef(null);
+
+  // Active color theme palette tokens
   const { NAVY, NAVY_LIGHT, NAVY_CARD, GOLD, GOLD_SOFT, INK, SLATE, LINE } = isDark ? DARK : LIGHT;
+
+  // Header navigation items
   const navItems = ["Home", "About", "Skills", "Projects", "Journey", "Learnings", "Contact"];
 
+  /** Helper function to perform smooth scrolling to section anchor IDs */
   const scrollTo = (id) => {
     if (id === "home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -325,6 +402,7 @@ export default function Portfolio() {
     setNavOpen(false);
   };
 
+  /** Close mobile navigation drawer when clicking outside the menu element */
   useEffect(() => {
     if (!navOpen) return;
     const onClickOutside = (e) => {
@@ -336,7 +414,12 @@ export default function Portfolio() {
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [navOpen]);
 
-  // Direct Mail Submission (Web3Forms API + mailto fallback)
+  /**
+   * Handle Contact Form Submission:
+   * - If a valid Web3Forms API key is set in `USER_INFO.web3formsKey`, sends message asynchronously to inbox.
+   * - Otherwise, triggers default mail client via `mailto:` link with pre-filled message fields.
+   * - Clears form fields immediately upon submission and presents feedback banner.
+   */
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     if (!contactForm.name.trim() || !contactForm.email.trim() || !contactForm.message.trim()) return;
@@ -381,12 +464,15 @@ export default function Portfolio() {
       );
       window.location.href = `mailto:${USER_INFO.email}?subject=${subject}&body=${body}`;
       setSubmitStatus("success");
+      setContactForm({ name: "", email: "", subject: "", message: "" });
       setIsSubmitting(false);
     }
   };
 
+  /** Validation helper checking if required fields (Name, Email, Message) are filled */
   const isContactFormValid = contactForm.name.trim() && contactForm.email.trim() && contactForm.message.trim();
 
+  /** Theme Switcher Button Component */
   const ThemeToggle = ({ style }) => (
     <button
       onClick={() => setIsDark(!isDark)}
@@ -411,55 +497,13 @@ export default function Portfolio() {
   );
 
   return (
-    <div style={{ background: NAVY, minHeight: "100vh", color: INK, transition: "background 0.3s ease, color 0.3s ease" }}>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; }
-        section[id] { scroll-margin-top: 84px; }
-        [data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .navlink { position: relative; cursor: pointer; }
-        .navlink::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 1px; background: ${GOLD}; transition: width 0.25s ease; }
-        .navlink:hover::after { width: 100%; }
-        .proj-card { transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease; text-decoration: none; }
-        .proj-card.is-linked { cursor: pointer; }
-        .proj-card:hover { border-color: ${GOLD_SOFT}; transform: translateY(-3px); box-shadow: 0 16px 32px rgba(0,0,0,0.18); }
-        .proj-arrow { display: inline-flex; color: ${SLATE}; transition: transform 0.25s ease, color 0.25s ease; }
-        .proj-card:hover .proj-arrow { transform: translate(2px, -2px); color: ${GOLD}; }
-        .chip { font-family: 'JetBrains Mono', monospace; background: rgba(128,128,128,0.08); transition: background 0.2s ease, border-color 0.2s ease; }
-        .chip:hover { background: rgba(212,167,58,0.12); border-color: ${GOLD_SOFT}; }
-        .skill-hero-card { transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; }
-        .skill-hero-card:hover { border-color: ${GOLD}; transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.25); }
-        .roadmap-card { transition: border-color 0.25s ease, transform 0.25s ease; }
-        .roadmap-card:hover { border-color: ${GOLD_SOFT}; transform: translateY(-2px); }
-        .learn-card { transition: border-color 0.25s ease, transform 0.25s ease; }
-        .learn-card:hover { border-color: ${GOLD_SOFT}; transform: translateY(-2px); }
-        .btn-cv { background: #3B82F6; color: #FFFFFF; transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease; text-decoration: none; }
-        .btn-cv:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(59,130,246,0.35); filter: brightness(1.08); }
-        .btn-whatsapp { background: #25D366; color: #FFFFFF; transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease; text-decoration: none; }
-        .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(37,211,102,0.35); filter: brightness(1.08); }
-        .btn-primary { transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(212,167,58,0.28); filter: brightness(1.05); }
-        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
-        .btn-secondary { transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease; }
-        .btn-secondary:hover { border-color: ${GOLD_SOFT}; color: ${GOLD}; background: rgba(212,167,58,0.06); }
-        .icon-btn { transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease; text-decoration: none; }
-        .icon-btn:hover { border-color: ${GOLD_SOFT}; color: ${GOLD}; background: rgba(212,167,58,0.08); transform: translateY(-2px); }
-        .social-circle-btn { width: 44px; height: 44px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 1px solid ${LINE}; color: ${INK}; background: rgba(128,128,128,0.08); transition: all 0.25s ease; text-decoration: none; }
-        .social-circle-btn:hover { transform: translateY(-3px); border-color: ${GOLD}; color: ${GOLD}; background: rgba(212,167,58,0.15); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-        .field { transition: border-color 0.2s ease, background 0.2s ease; }
-        .field:focus { border-color: ${GOLD_SOFT}; outline: none; }
-        .tag { font-family: 'JetBrains Mono', monospace; }
-        .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; background: ${GOLD}; color: ${ON_ACCENT}; padding: 10px 16px; border-radius: 2px; font-size: 13px; text-decoration: none; transition: top 0.2s ease; }
-        .skip-link:focus { top: 12px; }
-        ::selection { background: ${GOLD}; color: ${ON_ACCENT}; }
-        a:focus-visible, button:focus-visible { outline: 2px solid ${GOLD}; outline-offset: 3px; }
-      `}</style>
+    <div data-theme={isDark ? "dark" : "light"} style={{ background: NAVY, minHeight: "100vh", color: INK, transition: "background 0.3s ease, color 0.3s ease" }}>
 
+
+      {/* Accessibility Skip Link */}
       <a href="#main" className="skip-link">Skip to content</a>
 
-      {/* Scroll Progress Bar */}
+      {/* Top Scroll Progress Indicator */}
       <div
         aria-hidden="true"
         style={{ position: "fixed", top: 0, left: 0, height: "2px", width: `${scrollProgress}%`, background: GOLD, zIndex: 60, transition: "width 0.1s linear" }}
@@ -471,6 +515,7 @@ export default function Portfolio() {
         style={{ background: isDark ? "rgba(10,25,41,0.92)" : "rgba(247,245,240,0.92)", backdropFilter: "blur(6px)", borderBottom: `1px solid ${LINE}`, transition: "background 0.3s ease, border-color 0.3s ease" }}
       >
         <Container style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: "16px", paddingBottom: "16px" }}>
+          {/* Logo / Brand Name */}
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollTo("home")}>
             <span style={{ color: GOLD, fontWeight: 700, fontSize: "20px" }}>&lt;/&gt;</span>
             <span style={{ fontFamily: "'Fraunces', serif", fontSize: "20px", color: INK, fontWeight: 600 }}>
@@ -478,6 +523,7 @@ export default function Portfolio() {
             </span>
           </div>
 
+          {/* Desktop Navigation Links & Action Controls */}
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <span
@@ -508,6 +554,8 @@ export default function Portfolio() {
               Let's talk
             </button>
           </nav>
+
+          {/* Mobile Navigation Toggle Button */}
           <div className="md:hidden flex items-center gap-3">
             <ThemeToggle />
             <button
@@ -521,6 +569,7 @@ export default function Portfolio() {
         </Container>
       </header>
 
+      {/* Mobile Navigation Drawer */}
       {navOpen && (
         <div ref={mobileNavRef} className="md:hidden flex flex-col px-6 py-4 gap-4" style={{ background: NAVY_LIGHT, borderBottom: `1px solid ${LINE}` }}>
           {navItems.map((item) => (
@@ -534,9 +583,12 @@ export default function Portfolio() {
         </div>
       )}
 
+      {/* Main Content Area */}
       <main id="main">
-        {/* Hero Section */}
+
+        {/* HERO SECTION */}
         <section id="home" style={{ position: "relative", overflow: "hidden" }} className="pt-16 md:pt-20 pb-16">
+          {/* Subtle Grid Background Pattern */}
           <div
             aria-hidden="true"
             style={{
@@ -551,6 +603,7 @@ export default function Portfolio() {
           />
           <Container style={{ position: "relative", zIndex: 2 }}>
             <div className="flex flex-col md:flex-row items-center justify-between gap-14">
+              {/* Left Column: Hero Text & Calls to Action */}
               <div style={{ maxWidth: "580px" }}>
                 <p style={{ fontFamily: "'JetBrains Mono', monospace", color: GOLD, fontSize: "13px", marginBottom: "18px" }}>
                   {USER_INFO.role}
@@ -566,7 +619,7 @@ export default function Portfolio() {
                   I'm Umar — I build admin systems, tools and small apps with PHP, MySQL and React, currently deep in a six-month placement at GOSIDEC.
                 </p>
 
-                {/* Hero Action Buttons - Download CV, WhatsApp Me, Hire Me */}
+                {/* Hero Action Buttons: Download CV, WhatsApp Me, Hire Me */}
                 <div className="flex gap-3 mt-10 flex-wrap items-center">
                   <a
                     href={USER_INFO.cvUrl}
@@ -598,6 +651,7 @@ export default function Portfolio() {
                   </button>
                 </div>
 
+                {/* Key Metrics / Highlights Grid */}
                 <div className="grid grid-cols-3 gap-6 mt-16" style={{ maxWidth: "420px" }}>
                   {[
                     { n: "6", label: "Months in training" },
@@ -614,7 +668,7 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Portrait Image */}
+              {/* Right Column: Circular Portrait Image */}
               <div style={{ flexShrink: 0 }}>
                 <div
                   style={{
@@ -650,7 +704,7 @@ export default function Portfolio() {
           </Container>
         </section>
 
-        {/* About Section */}
+        {/* ABOUT SECTION */}
         <section id="about" className="py-20" data-reveal>
           <Container>
             <SectionLabel n="01" gold={GOLD} ink={INK} line={LINE}>About</SectionLabel>
@@ -679,7 +733,7 @@ export default function Portfolio() {
           </Container>
         </section>
 
-        {/* Skills Section - Styled layout using Umar's Real Skills */}
+        {/* SKILLS SECTION */}
         <section id="skills" className="py-20" data-reveal>
           <Container>
             <SectionLabel n="02" gold={GOLD} ink={INK} line={LINE}>Skills</SectionLabel>
@@ -693,8 +747,9 @@ export default function Portfolio() {
               </p>
             </div>
 
+            {/* Featured Brand Tech Cards & Technical Breakdown Panel */}
             <div className="grid lg:grid-cols-12 gap-8 items-start mb-12">
-              {/* Featured Tech Cards with Umar's core stack */}
+              {/* Left Column: 4 Featured Brand Cards */}
               <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
                 {featuredTech.map((sk) => (
                   <div
@@ -720,7 +775,7 @@ export default function Portfolio() {
                 ))}
               </div>
 
-              {/* Technical Expertise Breakdown for Umar */}
+              {/* Right Column: Technical Expertise Breakdown */}
               <div
                 className="lg:col-span-5 p-8"
                 style={{
@@ -751,7 +806,7 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Original Skill Group Badges */}
+            {/* Skill Group Badges Grid */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {skillCategories.map((s) => (
                 <div
@@ -778,7 +833,7 @@ export default function Portfolio() {
           </Container>
         </section>
 
-        {/* Projects Section */}
+        {/* PROJECTS SECTION */}
         <section id="projects" className="py-20" data-reveal>
           <Container>
             <SectionLabel n="03" gold={GOLD} ink={INK} line={LINE}>Projects</SectionLabel>
@@ -820,7 +875,7 @@ export default function Portfolio() {
           </Container>
         </section>
 
-        {/* Journey / Roadmap Section */}
+        {/* JOURNEY / ROADMAP SECTION */}
         <section id="journey" className="py-20" data-reveal>
           <Container>
             <SectionLabel n="04" gold={GOLD} ink={INK} line={LINE}>Journey</SectionLabel>
@@ -849,7 +904,7 @@ export default function Portfolio() {
           </Container>
         </section>
 
-        {/* Recent Learnings */}
+        {/* RECENT LEARNINGS SECTION */}
         <section id="learnings" className="py-20" data-reveal>
           <Container>
             <SectionLabel n="05" gold={GOLD} ink={INK} line={LINE}>Recent learnings</SectionLabel>
@@ -874,13 +929,13 @@ export default function Portfolio() {
           </Container>
         </section>
 
-        {/* Contact Section with Umar's Real Info & Working Social Links */}
+        {/* CONTACT SECTION */}
         <section id="contact" className="py-24" data-reveal>
           <Container>
             <SectionLabel n="06" gold={GOLD} ink={INK} line={LINE}>Contact</SectionLabel>
 
             <div className="grid md:grid-cols-12 gap-10">
-              {/* Left Column: Contact Cards + Real Working Social Icons */}
+              {/* Left Column: Direct Contact Info & Working Social Buttons */}
               <div className="md:col-span-5 flex flex-col justify-between">
                 <div>
                   <p style={{ color: SLATE, fontSize: "15px", lineHeight: 1.7, marginBottom: "28px" }}>
@@ -913,7 +968,7 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  {/* Working Social Buttons using Umar's exact URLs */}
+                  {/* Follow Me Social Buttons */}
                   <div>
                     <h4 style={{ fontSize: "16px", fontWeight: 600, color: INK, marginBottom: "14px" }}>
                       Follow Me
@@ -964,7 +1019,7 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Right Column: Direct Email Contact Form */}
+              {/* Right Column: Direct Contact Form */}
               <div className="md:col-span-7">
                 <div style={{ background: NAVY_LIGHT, border: `1px solid ${LINE}`, borderRadius: "8px", padding: "32px" }}>
                   <form onSubmit={handleContactSubmit} className="flex flex-col gap-4">
@@ -1021,7 +1076,7 @@ export default function Portfolio() {
                       {isSubmitting ? "Sending..." : "Send Message"}
                     </button>
 
-                    {/* Confirmation Message */}
+                    {/* Submit Status Feedback Banners */}
                     {submitStatus === "success" && (
                       <div
                         style={{
@@ -1060,6 +1115,7 @@ export default function Portfolio() {
         </section>
       </main>
 
+      {/* FOOTER */}
       <footer className="py-8" style={{ borderTop: `1px solid ${LINE}` }}>
         <Container style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
           <p style={{ color: SLATE, fontSize: "13px" }}>© 2026 {USER_INFO.name}. Built with React.</p>
