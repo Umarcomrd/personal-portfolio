@@ -1118,7 +1118,7 @@ export default function Portfolio() {
       {/* FOOTER */}
       <footer className="py-8" style={{ borderTop: `1px solid ${LINE}` }}>
         <Container style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
-          <p style={{ color: SLATE, fontSize: "13px" }}>© 2026 {USER_INFO.name}. Built with React.</p>
+          <p style={{ color: SLATE, fontSize: "13px" }}>© 2026 {USER_INFO.name}.</p>
           <div className="flex items-center gap-4">
             <a href={USER_INFO.socials.github} target="_blank" rel="noreferrer" style={{ color: SLATE }} className="icon-btn" aria-label="GitHub">
               <GithubIcon size={16} />
