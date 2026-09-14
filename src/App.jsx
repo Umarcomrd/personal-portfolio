@@ -40,7 +40,8 @@ const USER_INFO = {
     linkedin: "https://www.linkedin.com/in/umar-babawuro-abubakar-a1597b435/",
     github: "https://github.com/Umarcomrd",
     twitter: "https://x.com/design30354",
-  }
+  },
+  web3formsKey: "YOUR_WEB3FORMS_KEY"
 };
 
 // Umar's Real Skill Categories
@@ -335,7 +336,7 @@ export default function Portfolio() {
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [navOpen]);
 
-  // Direct Async Mail Submission
+  // Direct Mail Submission (Web3Forms API + mailto fallback)
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     if (!contactForm.name.trim() || !contactForm.email.trim() || !contactForm.message.trim()) return;
@@ -343,30 +344,43 @@ export default function Portfolio() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: "pb_demo_access_key",
-          name: contactForm.name,
-          email: contactForm.email,
-          subject: contactForm.subject || `New Portfolio Message from ${contactForm.name}`,
-          message: contactForm.message,
-        }),
-      });
+    const apiKey = USER_INFO.web3formsKey;
+    const isRealKey = apiKey && apiKey !== "YOUR_WEB3FORMS_KEY" && apiKey.trim().length > 10;
 
-      if (res.ok) {
-        setSubmitStatus("success");
-        setContactForm({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setSubmitStatus("success");
-        setContactForm({ name: "", email: "", subject: "", message: "" });
+    if (isRealKey) {
+      try {
+        const res = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: apiKey.trim(),
+            name: contactForm.name,
+            email: contactForm.email,
+            subject: contactForm.subject || `New Portfolio Message from ${contactForm.name}`,
+            message: contactForm.message,
+          }),
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          setSubmitStatus("success");
+          setContactForm({ name: "", email: "", subject: "", message: "" });
+        } else {
+          setSubmitStatus("error");
+        }
+      } catch {
+        setSubmitStatus("error");
+      } finally {
+        setIsSubmitting(false);
       }
-    } catch {
+    } else {
+      // Fallback: Open mailto client directly with prefilled message
+      const subject = encodeURIComponent(contactForm.subject || `Portfolio inquiry from ${contactForm.name}`);
+      const body = encodeURIComponent(
+        `Name: ${contactForm.name}\nEmail: ${contactForm.email}\n\nMessage:\n${contactForm.message}`
+      );
+      window.location.href = `mailto:${USER_INFO.email}?subject=${subject}&body=${body}`;
       setSubmitStatus("success");
-      setContactForm({ name: "", email: "", subject: "", message: "" });
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -1021,6 +1035,21 @@ export default function Portfolio() {
                         }}
                       >
                         Message sent successfully! I'll get back to you soon.
+                      </div>
+                    )}
+                    {submitStatus === "error" && (
+                      <div
+                        style={{
+                          background: "rgba(211, 47, 47, 0.15)",
+                          border: "1px solid #D32F2F",
+                          color: isDark ? "#EF9A9A" : "#B71C1C",
+                          padding: "14px 16px",
+                          borderRadius: "4px",
+                          fontSize: "14px",
+                          marginTop: "8px",
+                        }}
+                      >
+                        Could not send message automatically. Please email me directly at {USER_INFO.email} or use WhatsApp.
                       </div>
                     )}
                   </form>
