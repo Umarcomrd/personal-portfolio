@@ -217,9 +217,10 @@ const projects = [
     name: "Vegetable Joint App",
     role: "Collaborative Project",
     isFeatured: false,
-    desc: "A fresh produce ordering frontend application with modular component architecture, dynamic cart management, and interactive item catalog.",
-    tags: ["React", "JavaScript", "Tailwind CSS", "In Progress"],
-    githubUrl: null,
+    statusBadge: "Frontend Completed",
+    desc: "A multi-seller B2B/B2C agricultural marketplace connecting Nigerian farmers directly with buyers and restaurants. Built with React 18, React Router, modular component architecture, multi-vendor cart splitting, payment & failure handling workflows, and automated Vitest testing suites.",
+    tags: ["React 18", "React Router", "Vite", "Vitest", "Context API"],
+    githubUrl: "https://github.com/Aminullah-01/vegetable-joint-App",
     liveUrl: null,
   },
 ];
@@ -238,7 +239,7 @@ const roadmap = [
     title: "Frontend Frameworks & React",
     status: "completed",
     badge: "Completed",
-    desc: "Expanding frontend toolkit with modern React, component architecture, state hooks, and client-side routing in the Vegetable Joint app."
+    desc: "Mastered modern React, component architecture, state hooks, and client-side routing by completing the frontend for the Vegetable Joint marketplace app."
   },
   {
     month: "Month 5",
@@ -266,7 +267,7 @@ const recentLearnings = [
   {
     tag: "Month 3–4",
     title: "Frontend Architecture & React",
-    desc: "Dived into modern React component architecture, hooks, dynamic DOM state rendering, and responsive UI components.",
+    desc: "Engineered modern React SPA architecture, custom hooks, dynamic multi-vendor cart state, and comprehensive Vitest test suites for Vegetable Joint.",
   },
   {
     tag: "Month 5 (Completed)",
@@ -907,6 +908,10 @@ export default function Portfolio() {
                         <TbSparkles size={12} />
                         Featured SIWES
                       </span>
+                    ) : p.statusBadge ? (
+                      <span className="text-xs px-2 py-0.5 rounded font-medium" style={{ background: "rgba(34, 197, 94, 0.15)", color: "#22C55E", border: "1px solid rgba(34, 197, 94, 0.3)" }}>
+                        {p.statusBadge}
+                      </span>
                     ) : p.liveUrl ? (
                       <span className="text-xs px-2 py-0.5 rounded" style={{ background: "rgba(34, 197, 94, 0.15)", color: "#22C55E", border: "1px solid rgba(34, 197, 94, 0.3)" }}>
                         Deployed
@@ -1040,7 +1045,7 @@ export default function Portfolio() {
                         >
                           {isCompleted ? <FaCheck size={12} /> : i + 1}
                         </div>
-
+           
                         <span
                           style={{
                             fontSize: "11px",
@@ -1120,12 +1125,10 @@ export default function Portfolio() {
             </div>
           </Container>
         </section>
-
         {/* CONTACT SECTION */}
         <section id="contact" className="py-24" data-reveal>
           <Container>
             <SectionLabel n="06" gold={GOLD} ink={INK} line={LINE}>Contact</SectionLabel>
-
             <div className="grid md:grid-cols-12 gap-10">
               
               {/* Left Column: Direct Info & Working Copy Controls */}
@@ -1137,7 +1140,7 @@ export default function Portfolio() {
                   <p style={{ color: SLATE, fontSize: "15px", lineHeight: 1.7, marginBottom: "28px" }}>
                     Whether you have an inquiry, project collaboration, SIWES consultation, or software role, feel free to reach out directly.
                   </p>
-
+                  
                   <div className="flex flex-col gap-4 mb-10">
                     
                     {/* Phone Item with Quick Copy */}
@@ -1359,7 +1362,6 @@ export default function Portfolio() {
                   </form>
                 </div>
               </div>
-
             </div>
           </Container>
         </section>
