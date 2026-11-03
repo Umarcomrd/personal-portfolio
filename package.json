@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:cv": "google-chrome --headless=new --disable-gpu --print-to-pdf=public/Umar_Abubakar_CV.pdf --no-pdf-header-footer file://$(pwd)/cv/cv.html && cp public/Umar_Abubakar_CV.pdf dist/Umar_Abubakar_CV.pdf",
     "lint": "oxlint",
     "preview": "vite preview"
   },

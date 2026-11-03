@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Umar Babawuro Abubakar - CV</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 0.40in 0.50in;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1a202c;
+      background-color: #ffffff;
+      font-size: 9.3pt;
+      line-height: 1.35;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: #0b57d0;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin-bottom: 10px;
+      padding-bottom: 7px;
+      border-bottom: 2.5px solid #0A1929;
+    }
+
+    .name {
+      font-size: 21pt;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: #0A1929;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .headline {
+      font-size: 10.2pt;
+      font-weight: 600;
+      color: #B8934A;
+      margin-bottom: 5px;
+      letter-spacing: 0.3px;
+    }
+
+    .contact-bar {
+      font-size: 8.9pt;
+      color: #475569;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+      align-items: center;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .contact-item strong {
+      color: #1e293b;
+      margin-right: 3px;
+    }
+
+    .sep {
+      color: #94a3b8;
+    }
+
+    /* SECTION STYLES */
+    .section {
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 10.1pt;
+      font-weight: 700;
+      color: #0A1929;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      border-bottom: 1.5px solid #25405E;
+      padding-bottom: 2px;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* SUMMARY */
+    .summary-text {
+      color: #2d3748;
+      text-align: justify;
+      font-size: 9.1pt;
+      line-height: 1.39;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .skill-row {
+      display: flex;
+      font-size: 8.95pt;
+      line-height: 1.34;
+    }
+
+    .skill-label {
+      font-weight: 700;
+      color: #0f172a;
+      width: 148px;
+      min-width: 148px;
+    }
+
+    .skill-values {
+      color: #334155;
+      flex: 1;
+    }
+
+    /* ITEM BLOCK (Projects, Experience, Education) */
+    .item-block {
+      margin-bottom: 7.5px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .item-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .item-title {
+      font-size: 9.7pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .item-date {
+      font-size: 8.6pt;
+      font-weight: 600;
+      color: #64748b;
+      white-space: nowrap;
+    }
+
+    .item-subbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.7pt;
+      color: #475569;
+      margin-bottom: 2px;
+    }
+
+    .item-role-text {
+      font-weight: 600;
+      color: #B8934A;
+    }
+
+    .tech-stack {
+      font-size: 8.55pt;
+      color: #334155;
+    }
+
+    .tech-stack strong {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    /* BULLET LISTS */
+    ul.bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 2px;
+    }
+
+    ul.bullet-list li {
+      position: relative;
+      padding-left: 13px;
+      margin-bottom: 2.2px;
+      font-size: 8.9pt;
+      line-height: 1.34;
+      color: #2d3748;
+      text-align: justify;
+    }
+
+    ul.bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 2px;
+      color: #0A1929;
+      font-weight: bold;
+      font-size: 9.5pt;
+    }
+
+    /* CERTIFICATIONS */
+    .cert-item {
+      margin-bottom: 6px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .cert-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .cert-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .cert-title {
+      font-size: 9.4pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .cert-issuer {
+      font-size: 8.8pt;
+      color: #B8934A;
+      font-weight: 600;
+      margin-bottom: 1.5px;
+    }
+
+    .cert-desc {
+      font-size: 8.7pt;
+      color: #334155;
+      line-height: 1.32;
+    }
+
+    /* COMPETENCIES / BADGES */
+    .competency-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 3px;
+    }
+
+    .competency-tag {
+      background-color: #f1f5f9;
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+      padding: 2.5px 7px;
+      border-radius: 3px;
+      font-size: 8.3pt;
+      font-weight: 500;
+    }
+
+    .project-links {
+      font-size: 8.6pt;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    
+    <!-- HEADER -->
+    <header class="header">
+      <h1 class="name">Umar Babawuro Abubakar</h1>
+      <div class="headline">Full-Stack Developer | React, PHP (PDO) &amp; MySQL</div>
+      <div class="contact-bar">
+        <span class="contact-item">Gombe State, Nigeria</span>
+        <span class="sep">•</span>
+        <span class="contact-item"><a href="tel:+2347072105145">+234 707 210 5145</a></span>
+        <span class="sep">•</span>
+        <span class="contact-item"><a href="mailto:ug23sccs1044@gsu.edu.ng">ug23sccs1044@gsu.edu.ng</a></span>
+      </div>
+      <div class="contact-bar" style="margin-top: 3px;">
+        <span class="contact-item"><strong>GitHub:</strong>&nbsp;<a href="https://github.com/Umarcomrd" target="_blank">github.com/Umarcomrd</a></span>
+        <span class="sep">•</span>
+        <span class="contact-item"><strong>LinkedIn:</strong>&nbsp;<a href="https://www.linkedin.com/in/umar-babawuro-abubakar-a1597b435/" target="_blank">linkedin.com/in/umar-babawuro-abubakar</a></span>
+        <span class="sep">•</span>
+        <span class="contact-item"><strong>Portfolio:</strong>&nbsp;<a href="https://github.com/Umarcomrd" target="_blank">Umar Portfolio</a></span>
+      </div>
+    </header>
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <section class="section">
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary-text">
+        Resourceful and results-driven Full-Stack Developer and Computer Science undergraduate with hands-on experience building modern, responsive web applications and secure server-side systems. Proficient in React (hooks, Context API, modular component design), PHP (Object-Oriented Programming, PDO prepared statements, session auth), and relational MySQL database architecture. Demonstrated collaborative engineering delivery on the multi-seller <strong>Vegetable Joint</strong> agricultural marketplace with comprehensive automated Vitest test suites, complemented by sole-developer ownership of the <strong>BlueWave Hotel Management System</strong>. Proven ability to write clean, maintainable, and well-tested code, quickly adopt modern frontend workflows, and deliver impactful software in agile team environments.
+      </p>
+    </section>
+
+    <!-- TECHNICAL SKILLS -->
+    <section class="section">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <span class="skill-label">Languages:</span>
+          <span class="skill-values">JavaScript (ES6+), PHP, SQL, HTML5, CSS3</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Frontend Frameworks:</span>
+          <span class="skill-values">React 18 / 19, React Router, Tailwind CSS, Bootstrap, Context API, Responsive Design</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Backend &amp; Database:</span>
+          <span class="skill-values">PHP (OOP, PDO), MySQL, Relational Schema Design, Foreign Keys &amp; Indexing, RESTful APIs, Session Auth</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Testing &amp; QA:</span>
+          <span class="skill-values">Vitest, React Testing Library, Automated Unit &amp; Integration Testing, Coverage QA, ESLint, Prettier</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-label">Tools &amp; Platforms:</span>
+          <span class="skill-values">Git, GitHub, Vite, XAMPP, Visual Studio Code, Vercel, Postman, ngrok</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="section">
+      <h2 class="section-title">Featured Engineering Projects</h2>
+
+      <!-- PROJECT: VEGETABLE JOINT -->
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Vegetable Joint — Multi-Seller Agricultural Marketplace</span>
+          <span class="item-date">September 2026 – Present</span>
+        </div>
+        <div class="item-subbar">
+          <span class="item-role-text">Frontend Developer | Collaborative Team Project</span>
+          <span class="project-links"><a href="https://github.com/Aminullah-01/vegetable-joint-App" target="_blank">github.com/Aminullah-01/vegetable-joint-App</a></span>
+        </div>
+        <div class="item-subbar">
+          <span class="tech-stack"><strong>Tech:</strong> React 18, React Router, Vite, Vitest, React Testing Library, Context API, JavaScript (ES6+)</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Co-engineered a digital multi-seller agricultural marketplace connecting Nigerian vegetable farmers and cooperatives directly with consumers, restaurants, and caterers.</li>
+          <li>Architected a modular 4-step buyer checkout workflow (<code>CheckoutStepper</code>, <code>OrderReviewModal</code>, <code>OrderSummary</code>) with transparent multi-vendor cart splitting and idempotent UUID order generation.</li>
+          <li>Engineered resilient payment method display and failure-handling recovery logic (<code>checkoutErrors.js</code>), preventing cart data loss and providing clear user recovery guidance.</li>
+          <li>Built interactive quantity selector components and seller verification approval notice interfaces ensuring compliance with strict role-based access control specifications.</li>
+          <li>Authored over 1,000+ lines of robust unit and integration tests using <strong>Vitest</strong> and <strong>React Testing Library</strong>, securing &gt;90% branch and function test coverage across critical checkout pathways.</li>
+        </ul>
+      </div>
+
+      <!-- PROJECT: BLUEWAVE HOTEL MANAGEMENT -->
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">BlueWave Hotel Management System</span>
+          <span class="item-date">April 2026 – Present</span>
+        </div>
+        <div class="item-subbar">
+          <span class="item-role-text">Sole Developer | Primary SIWES Project</span>
+          <span class="project-links"><a href="https://github.com/Umarcomrd/online-hotel-management-system-" target="_blank">github.com/Umarcomrd/online-hotel-management-system-</a></span>
+        </div>
+        <div class="item-subbar">
+          <span class="tech-stack"><strong>Tech:</strong> PHP (OOP/PDO), MySQL, HTML5, CSS3, JavaScript, Bootstrap, XAMPP</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Architected and implemented a comprehensive hotel administration web application automating room inventory management, online reservations, guest complaint resolution, and staff roles.</li>
+          <li>Hardened database transactions against SQL injection by leveraging PHP Data Objects (PDO) with parameterized queries and strict prepared statements.</li>
+          <li>Designed normalized relational MySQL database schemas with foreign key constraints, automated status update triggers, and optimized reservation lookups.</li>
+          <li>Implemented secure role-based session authentication, cleanly decoupling administrative staff controls from guest-facing reservation features.</li>
+          <li>Constructed responsive, accessible UI dashboards using Bootstrap and modular vanilla JavaScript DOM manipulation.</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </div>
+
+  <!-- ================= PAGE 2 ================= -->
+  <div class="page page-break">
+
+    <!-- PROJECTS CONTINUED -->
+    <section class="section">
+      <h2 class="section-title">Projects (Continued)</h2>
+
+      <!-- PROJECT: QUIZWAVE -->
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">QuizWave — Interactive Timed Quiz Application</span>
+          <span class="item-date">August 2026 – Present</span>
+        </div>
+        <div class="item-subbar">
+          <span class="item-role-text">Sole Developer | Personal Project</span>
+          <span class="project-links">
+            <a href="https://umar-comrd-teal.vercel.app/" target="_blank">Live Demo</a> • 
+            <a href="https://github.com/Umarcomrd/quizwave" target="_blank">github.com/Umarcomrd/quizwave</a>
+          </span>
+        </div>
+        <div class="item-subbar">
+          <span class="tech-stack"><strong>Tech:</strong> JavaScript (ES6+), HTML5, CSS3, Web Audio API, Vercel</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Developed a fast, client-side timed quiz application evaluating core JavaScript concepts (objects, JSON handling, template literals, arrays, and closures).</li>
+          <li>Integrated the in-browser Web Audio API for responsive sound effects, dynamic scoring algorithms, keyboard navigation shortcuts, and animated celebration effects.</li>
+          <li>Designed a clean, fully responsive user interface delivering consistent performance across desktop, tablet, and mobile browsers.</li>
+          <li>Configured automated continuous deployment via Vercel for zero-downtime updates and live public accessibility.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section class="section">
+      <h2 class="section-title">Work &amp; Internship Experience</h2>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Geek Ink Innovation</span>
+          <span class="item-date">August 2025 – November 2025</span>
+        </div>
+        <div class="item-subbar">
+          <span class="item-role-text">Software Development Intern (Remote)</span>
+          <span>Remote, Nigeria</span>
+        </div>
+        <div class="item-subbar">
+          <span class="tech-stack"><strong>Focus:</strong> Backend Software Engineering &amp; Modern Web Development</span>
+        </div>
+        <ul class="bullet-list">
+          <li>Completed intensive backend development training, engineering dynamic, database-driven web applications using PHP and MySQL.</li>
+          <li>Applied Object-Oriented Programming (OOP) principles, clean code patterns, and explored MVC architecture with the Laravel framework.</li>
+          <li>Collaborated remotely with engineering mentors and peer trainees using Git and GitHub for version control, code reviews, and structured sprint deliverables.</li>
+          <li>Identified and resolved software defects through systematic debugging, test execution, and database query optimization.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section">
+      <h2 class="section-title">Education</h2>
+
+      <div class="item-block">
+        <div class="item-header">
+          <span class="item-title">Gombe State University</span>
+          <span class="item-date">2023/2024 – Expected 2027</span>
+        </div>
+        <div class="item-subbar">
+          <span class="item-role-text">Bachelor of Science (B.Sc.) in Computer Science</span>
+          <span>Gombe State, Nigeria</span>
+        </div>
+        <div class="item-subbar">
+          <span>Current CGPA: <strong>3.33 / 5.00</strong></span>
+          <span style="font-size: 8.6pt; color: #64748b;">Academic Standing: Top Quartile</span>
+        </div>
+        <ul class="bullet-list">
+          <li><strong>Relevant Coursework:</strong> Data Structures &amp; Algorithms, Object-Oriented Programming, Database Management Systems, System Analysis &amp; Design, Web Technologies, Software Engineering Principles.</li>
+          <li><strong>Activities &amp; Leadership:</strong> Google Developer Groups (GDG) On Campus Member; active contributor to peer code reviews and student tech workshops.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section">
+      <h2 class="section-title">Certifications &amp; Professional Training</h2>
+
+      <div class="cert-item">
+        <div class="cert-header">
+          <span class="cert-title">AI &amp; Data Analytics</span>
+          <span class="item-date">April 2026 – May 2026</span>
+        </div>
+        <div class="cert-issuer">Nigerian Content Development and Monitoring Board (NCDMB)</div>
+        <div class="cert-desc">Applied curriculum covering AI fundamentals, machine learning concepts, data interpretation, and predictive problem-solving for enterprise environments.</div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-header">
+          <span class="cert-title">Backend Software Development</span>
+          <span class="item-date">Completed October 2025</span>
+        </div>
+        <div class="cert-issuer">Computer Professionals Registration Council of Nigeria (CPN)</div>
+        <div class="cert-desc">Professional credential covering PHP programming, OOP design principles, relational MySQL administration, input validation, and server-side security.</div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-header">
+          <span class="cert-title">Web Development (Cohort 1)</span>
+          <span class="item-date">Completed July 2025</span>
+        </div>
+        <div class="cert-issuer">Google Developer Groups (GDG) GSU Tech Academy</div>
+        <div class="cert-desc">Hands-on curriculum in semantic HTML5, modern responsive CSS3/Bootstrap layouts, JavaScript DOM manipulation, and modern frontend workflows.</div>
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL COMPETENCIES -->
+    <section class="section">
+      <h2 class="section-title">Professional Competencies &amp; Methodologies</h2>
+      <div class="competency-list">
+        <span class="competency-tag">Agile / Scrum Workflows</span>
+        <span class="competency-tag">Git &amp; GitHub Version Control</span>
+        <span class="competency-tag">Test-Driven Development (TDD)</span>
+        <span class="competency-tag">RESTful API Design &amp; Integration</span>
+        <span class="competency-tag">Relational Database Normalization</span>
+        <span class="competency-tag">Cross-Functional Team Collaboration</span>
+        <span class="competency-tag">Code Review &amp; Refactoring</span>
+        <span class="competency-tag">Responsive Mobile-First UI</span>
+        <span class="competency-tag">System Analysis &amp; Design</span>
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section class="section" style="margin-top: 8px;">
+      <h2 class="section-title">References</h2>
+      <p style="font-size: 8.9pt; color: #475569;">Available upon request.</p>
+    </section>
+
+  </div>
+
+</body>
+</html>
