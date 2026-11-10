@@ -199,8 +199,8 @@ const projects = [
     name: "BlueWave Hotel Management System",
     role: "Primary SIWES Project",
     isFeatured: true,
-    desc: "An end-to-end admin web application for hotel operations — room inventory, automated bookings, guest complaint resolution, and role-based staff management with secure PDO queries.",
-    tags: ["PHP", "MySQL", "PDO", "XAMPP", "Session Auth"],
+    desc: "A full-stack hotel operations platform modernized with a modular React frontend and secure PHP/MySQL backend — features real-time room inventory, reactive booking workflows, guest complaint resolution, and role-based staff administration with prepared PDO statements.",
+    tags: ["React", "PHP", "MySQL", "PDO", "REST API", "Session Auth"],
     githubUrl: "https://github.com/Umarcomrd/online-hotel-management-system-",
     liveUrl: null,
   },
@@ -253,7 +253,7 @@ const roadmap = [
     title: "Full-Stack Delivery & Polish",
     status: "active",
     badge: "Current Phase",
-    desc: "End-to-end system testing, performance optimization, cloud deployment, and defense presentation of the complete SIWES body of work."
+    desc: "Migrated BlueWave hotel frontend to modern React, unified full-stack integration with PHP PDO backend, performance optimization, and SIWES defense polish."
   },
 ];
 
@@ -270,9 +270,9 @@ const recentLearnings = [
     desc: "Engineered modern React SPA architecture, custom hooks, dynamic multi-vendor cart state, and comprehensive Vitest test suites for Vegetable Joint.",
   },
   {
-    tag: "Month 5 (Completed)",
-    title: "BlueWave Admin Architecture & PDO",
-    desc: "Implemented parameterized SQL statements to eliminate injection vulnerabilities, built user sessions, and designed booking logic.",
+    tag: "Month 5–6 (Current)",
+    title: "BlueWave React Migration & Full-Stack Auth",
+    desc: "Migrated legacy frontend to modular React components, integrated reactive booking states with PHP PDO APIs, and hardened role-based session controls.",
   },
 ];
 
