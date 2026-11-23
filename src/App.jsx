@@ -30,7 +30,8 @@ import {
   SiGit,
   SiGithub,
   SiXampp,
-  SiNgrok
+  SiNgrok,
+  SiLaravel
 } from "react-icons/si";
 
 import {
@@ -173,6 +174,7 @@ const skillCategories = [
     items: [
       { name: "PHP (PDO)", icon: <SiPhp size={18} color="#777BB4" /> },
       { name: "MySQL", icon: <SiMysql size={18} color="#00758F" /> },
+      { name: "Laravel (Learning)", icon: <SiLaravel size={16} color="#FF2D20" /> },
       { name: "Database Modeling", icon: <FaDatabase size={14} color="#8D9AAE" /> },
       { name: "Session Auth", icon: <TbShieldLock size={16} color="#D4A73A" /> }
     ]
@@ -541,7 +543,7 @@ export default function Portfolio() {
               Let's talk
             </button>
           </nav>
-
+          
           {/* Mobile Menu Controls */}
           <div className="md:hidden flex items-center gap-3">
             <button
@@ -750,7 +752,7 @@ export default function Portfolio() {
                   I'm dedicated to becoming a proficient full-stack developer, guided by a structured six-month technical roadmap through my SIWES placement at GOSIDEC in Gombe State, Nigeria.
                 </p>
                 <p style={{ color: SLATE, fontSize: "16px", lineHeight: 1.8 }}>
-                  My path combines deep backend fundamentals using PHP (PDO) and relational MySQL database design with modern reactive frontend interfaces in React. I place strong emphasis on clean code structure, practical user experiences, and documenting my progress with live projects.
+                  My path combines deep backend fundamentals using PHP (PDO), MySQL, and Laravel with modern reactive frontend interfaces in React. I place strong emphasis on clean code structure, practical user experiences, and documenting my progress with live projects.
                 </p>
               </div>
 
@@ -835,7 +837,7 @@ export default function Portfolio() {
                   Engineering Expertise
                 </h4>
                 <p style={{ color: SLATE, fontSize: "14px", lineHeight: 1.7, marginBottom: "24px" }}>
-                  My core stack bridges foundational computer science principles, solid backend architecture with PHP and MySQL, and interactive frontend applications powered by React and modern styling.
+                  My core stack bridges foundational computer science principles, solid backend architecture with PHP, MySQL, and Laravel, and interactive frontend applications powered by React and modern styling.
                 </p>
 
                 <div className="flex flex-col gap-4">
